@@ -24,10 +24,10 @@ app.listen(3000, function() {
 
 
 
-/*
+
 
 var Sequelize = require("sequelize");
-var sequelize = new Sequelize("workoutlog", "postgres", "thisIsMyPassword", {
+var sequelize = new Sequelize("workoutlog", "postgres", "1postgresql1", {
 	host: "localhost",
 	dialect: "postgres"
 });
@@ -84,7 +84,7 @@ app.post("/api/user", function(req, res){
 	)
 });
 
-*/
+
 
 
 
