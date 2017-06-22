@@ -1,6 +1,9 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var sequelize = require("./db.js");
+var User = sequelize.import("./models/user");
+
 
 app.use(require("./middleware/headers"));  //will pull the headers module, which we've made to allow cross origin requests to this server.
 
@@ -19,37 +22,6 @@ app.listen(3000, function() {
 
 
 
-
-
-
-
-
-
-
-var Sequelize = require("sequelize");
-var sequelize = new Sequelize("workoutlog", "postgres", "1postgresql1", {
-	host: "localhost",
-	dialect: "postgres"
-});
-
-sequelize.authenticate().then(
-	function() {
-		console.log("connected to workoutlog postgres DB");    // message that will be displayed when we successfully connect to the DB
-	}, 
-	function(err) {
-		console.log(err);
-	}
-);
-
-
-
-
-
-//build a user model in sequelize.... traditional for models to begin with a capital letter
-var User = sequelize.define("user", {
-	username: Sequelize.STRING,
-	passwordhash: Sequelize.STRING,
-});
 
 
 User.sync();   //call the sequelize method on the User object... this line of code creates a table in postgres and matches the model we defined. (doesn't drop the DB)
