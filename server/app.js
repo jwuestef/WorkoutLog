@@ -24,6 +24,7 @@ app.use("/api/test", function(req, res) {
 });
 //login route
 app.use("/api/login", require("./routes/session"));
+app.use("/api/definition", require("./routes/definition"));
 
 
 
