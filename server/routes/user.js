@@ -20,7 +20,7 @@ router.post("/", function(req, res){
 	}).then(
 		//Sequelize is going to return the object it just created from the database
 		function createSuccess(user){
-			var token = jwt.sign({id: user.id}, "i_am_secret", {expiresIn: 60*60*24});   // creates a jsonwebtoken
+			var token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60*60*24});   // creates a jsonwebtoken
 
 			res.json({
 				user: user,

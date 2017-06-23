@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
@@ -15,6 +17,7 @@ User.sync();   //call the sequelize method on the User object... this line of co
 
 app.use(bodyParser.json());  //tell the application to use bodyParser. Will take data off incoming requests and turn it into JSON. It will take that JSON and expose it to be used for req.body
 app.use(require("./middleware/headers"));  //will pull the headers module, which we've made to allow cross origin requests to this server.
+app.use(require("./middleware/validate-session"));
 app.use("/api/user", require("./routes/user"));
 app.use("/api/test", function(req, res) {
 	res.send("Hello World!");
