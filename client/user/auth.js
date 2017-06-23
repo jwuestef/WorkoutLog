@@ -26,7 +26,9 @@ $(function(){
 				.done(function(data){
 					if(data.sessionToken){
 						WorkoutLog.setAuthHeader(data.sessionToken);
-					}
+						console.log("You made it!");
+						console.log(data.sessionToken);
+					};
 
 					$("#signup-model").modal("hide");
 					$(".disabled").removeClass("disabled");
