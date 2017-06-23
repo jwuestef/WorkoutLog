@@ -19,7 +19,8 @@ app.use("/api/user", require("./routes/user"));
 app.use("/api/test", function(req, res) {
 	res.send("Hello World!");
 });
-
+//login route
+app.use("/api/login", require("./routes/session"));
 
 
 
