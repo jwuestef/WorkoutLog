@@ -23,7 +23,7 @@ $(function() {
 				for (var i=0; i<len; i++) {
 					lis += "<li class='list-group-item'>" + history[i].def + " - " + history[i].result + "</li>";
 				}
-				$("#history-list").children.remove();
+				$("#history-list").children().remove();
 				$("#history-list").append(lis);
 			},
 			create: function() {
@@ -41,6 +41,9 @@ $(function() {
 				});
 				logger.done(function(data) {
 					WorkoutLog.log.workouts.push(data);
+					$("a[href='#history']").tab("show");   //routing
+					$("#log-description").val("");
+					$("#log-logtype").val("");
 				});
 			},
 			fetchAll: function() {

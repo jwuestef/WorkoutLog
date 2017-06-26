@@ -18,6 +18,9 @@ $(function() {
 				define.done(function(data){
 					WorkoutLog.definition.userDefinitions.push(data.definition);
 					console.log(data);     //added this extra with Bryce to get the object to print out at the end of module 18, as the tutorial expects an object in the console
+					$("a[href='#log']").tab("show");   //routing
+					$("#def-description").val("");
+					$("#def-logtype").val("");
 				});
 
 			},
