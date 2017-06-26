@@ -50,11 +50,11 @@ router.get("/", function(req, res) {
 			function findAllSuccess(data) {
 				//console.log(data);
 				res.json(data);
-			}
+			},
 
 			//error
-			function findAllError(data) {
-				res.send(500, err.message);
+			function findAllError(err) {
+				res.status(500).send(err.message);
 			}
 		);
 });
